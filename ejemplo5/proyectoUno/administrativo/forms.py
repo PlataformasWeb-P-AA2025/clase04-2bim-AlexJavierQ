@@ -52,6 +52,22 @@ class NumeroTelefonicoForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+    def clean_telefono(self):
+        valor = self.cleaned_data['telefono']
+        if not valor.isdigit() or len(valor) != 10:
+            raise forms.ValidationError("El número de teléfono debe tener exactamente 10 dígitos numéricos.")
+        return valor
+    
+    def clean_tipo(self):
+        valor = self.cleaned_data['tipo']
+        if len(valor) == 0:
+            raise forms.ValidationError("Ingrese un tipo de teléfono.")
+        primera_letra = valor[0].lower()
+        if primera_letra in 'aeiou':
+            raise forms.ValidationError("El tipo de teléfono debe comenzar con una consonante.")
+        return valor
+
+        
 
 
 class NumeroTelefonicoEstudianteForm(ModelForm):
@@ -62,6 +78,21 @@ class NumeroTelefonicoEstudianteForm(ModelForm):
         self.fields["estudiante"].widget = forms.widgets.HiddenInput()
         print(estudiante)
 
-    class Meta:
+    class Meta: 
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+
+    def clean_telefono(self):
+        valor = self.cleaned_data['telefono']
+        if not valor.isdigit() or len(valor) != 10:
+            raise forms.ValidationError("El número de teléfono debe tener exactamente 10 dígitos numéricos.")
+        return valor
+    
+    def clean_tipo(self):
+        valor = self.cleaned_data['tipo']
+        if len(valor) == 0:
+            raise forms.ValidationError("Ingrese un tipo de teléfono.")
+        primera_letra = valor[0].lower()
+        if primera_letra in 'aeiou':
+            raise forms.ValidationError("El tipo de teléfono debe comenzar con una consonante.")
+        return valor
