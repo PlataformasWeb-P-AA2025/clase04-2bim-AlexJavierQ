@@ -1,1 +1,3 @@
-# clase04-2bim![Captura desde 2025-05-07 07-44-35](https://github.com/user-attachments/assets/75d6710b-3859-42ea-a55e-98868597701d)
+# clase04-2bim
+![Captura desde 2025-07-01 09-39-00](https://github.com/user-attachments/assets/e5e57457-42b1-469b-8756-41899f27c64d)
+
